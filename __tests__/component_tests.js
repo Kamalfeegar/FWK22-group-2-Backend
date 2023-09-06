@@ -1,3 +1,3 @@
 /**
+ *  @group component
  */
- * @group component
