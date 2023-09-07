@@ -4,9 +4,11 @@
 
 //test with jest for domain/blog.js
 
-describe("Given:", () => {
-	describe("when:", () => {
-        test("Then:", () => {
+const blogHandler = require("../domain/blog.js")
+
+describe("Given blogHandler", () => {
+	describe("When using", () => {
+        test("Should have expected", () => {
             expect().toBe();
         });
     });
