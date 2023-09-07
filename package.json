@@ -5,7 +5,7 @@
   "main": "service.js",
   "scripts": {
     "test": "jest  --group=-component --group=-integration",
-    "test:watch": "jest --watchAll=true --passWithNoTests --group=-component --group=-integration",
+    "test:watch": "jest --coverage --watchAll=true --passWithNoTests --group=-component --group=-integration",
     "test:component": "jest --group=component",
     "test:integration": "jest --group=integration"
   },
