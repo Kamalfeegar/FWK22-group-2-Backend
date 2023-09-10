@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 // Mongose vew of data
 const blogSchema = mongoose.Schema({
-  titel: {
+    title: {
     type: String,
     required: true,
   },
