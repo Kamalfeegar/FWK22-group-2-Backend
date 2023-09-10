@@ -37,3 +37,10 @@ const uppdateArticle = async (req,res) =>{
         console.log({ message: error });
     }
 }
+module.exports = {
+    getAllArticles,
+    postArticle,
+    getArticle,
+    deleteArticle,
+    uppdateArticle,
+  };

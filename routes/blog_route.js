@@ -1,7 +1,7 @@
 // NPM packeges 
 const express = require("express")
 const mongoose = require("mongoose");
-const controllers = require("../controller/blog_controller.js");
+const controllers = require("../controllers/blog_controller");
 const router = express.Router();
 
 // Routers pointing to endpoint
