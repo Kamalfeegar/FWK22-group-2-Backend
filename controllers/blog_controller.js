@@ -8,7 +8,7 @@ const getAllArticles = async (req,res) =>{
 }
 const postArticle = async (req,res) =>{
     try {
-        console.log({ message: error });
+        res.json()
     } catch (error) {
         console.log({ message: error });
     }
@@ -16,7 +16,7 @@ const postArticle = async (req,res) =>{
 
 const getArticle = async (req,res) =>{
     try {
-        console.log({ message: error });
+        res.json()
     } catch (error) {
         console.log({ message: error });
     }
@@ -24,7 +24,7 @@ const getArticle = async (req,res) =>{
 
 const deleteArticle = async (req,res) =>{
     try {
-        console.log({ message: error });
+        res.json()
     } catch (error) {
         console.log({ message: error });
     }
@@ -32,7 +32,7 @@ const deleteArticle = async (req,res) =>{
 
 const uppdateArticle = async (req,res) =>{
     try {
-        console.log({ message: error });
+        res.json()
     } catch (error) {
         console.log({ message: error });
     }

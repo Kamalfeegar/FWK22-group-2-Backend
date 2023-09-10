@@ -13,8 +13,8 @@ app.use(express.json());
 app.use(cors());
 
 //-Routing 
-const itemRoutes = require('./routes/blog_route');
-app.use("/blogpost", itemRoutes);
+const blogRoutes = require('./routes/blog_route');
+app.use("/blogpost", blogRoutes);
 
 /// Conect Mogodb to server
 mongoose.set("strictQuery", false);
