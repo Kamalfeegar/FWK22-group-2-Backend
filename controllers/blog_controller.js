@@ -35,9 +35,14 @@ const deleteArticle = async (req,res) =>{
       }
 }
 
+
+
 const uppdateArticle = async (req,res) =>{
     try {
-        res.json()
+
+      const updatedArticle = await article.updateOne({_id: req.params.itemId },{ $set : { title: req.body.title,
+        description: req.body.description,}});
+        res.json(updatedArticle)
     } catch (error) {
         console.log({ message: error });
     }
