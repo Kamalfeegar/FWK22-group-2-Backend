@@ -1,4 +1,4 @@
-const article = [
+const articles = [
   { title: "Title1", description: "description1" },
   { title: "Title2", description: "description2" },
 ];
@@ -7,7 +7,7 @@ const getAllArticles = async (req, res) => {
   try {
     /* res.json(await article.find()); */
     res.status(200).json({
-      data: article,
+      data: articles,
     });
   } catch (error) {
     console.log({ message: error });
@@ -15,42 +15,57 @@ const getAllArticles = async (req, res) => {
 };
 const postArticle = async (req, res) => {
   try {
-    const createItem = new article({
+/*     const createItem = new article({
       title: req.body.title,
       description: req.body.description,
     });
-    res.json(await createItem.save());
+
+    res.json(await createItem.save()); */
+    res.status(200).json({
+      data: articles,
+    });
   } catch (error) {
     console.log({ message: error });
-  }
+  } 
 };
 
 const getArticle = async (req, res) => {
   try {
-    res.json(await article.find());
+    /* res.json(await article.find()); */
+    res.status(200).json({
+      data: articles,
+    });
   } catch (error) {
     console.log({ message: error });
-  }
+  } 
 };
 
 const deleteArticle = async (req, res) => {
-  try {
-    res.json(await article.deleteOne({ _id: req.params.itemId }));
+   try {
+/*     res.json(await article.deleteOne({ _id: req.params.itemId })); */
+    res.status(200).json({
+      data: articles,
+    });
   } catch (error) {
     console.log({ message: error });
-  }
+  } 
 };
 
 const uppdateArticle = async (req, res) => {
-  try {
-    const updatedArticle = await article.updateOne(
+   try {
+/*     const updatedArticle = await article.updateOne(
       { _id: req.params.itemId },
       { $set: { title: req.body.title, description: req.body.description } }
     );
-    res.json(updatedArticle);
+    res.json(updatedArticle); */
+
+    res.status(200).json({
+      data: articles,
+    });
+
   } catch (error) {
     console.log({ message: error });
-  }
+  } 
 };
 module.exports = {
   getAllArticles,
@@ -58,4 +73,5 @@ module.exports = {
   getArticle,
   deleteArticle,
   uppdateArticle,
+  articles,
 };
