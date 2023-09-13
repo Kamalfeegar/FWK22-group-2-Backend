@@ -1,13 +1,14 @@
 const article = [
-  { title: "Title1", description: "description" },
-  { title: "Title2", description: "description" },
+  { title: "Title1", description: "description1" },
+  { title: "Title2", description: "description2" },
 ];
 
 const getAllArticles = async (req, res) => {
   try {
     /* res.json(await article.find()); */
-    res.json();
-    console.log("Hellow world");
+    res.status(200).json({
+      data: article,
+    });
   } catch (error) {
     console.log({ message: error });
   }
