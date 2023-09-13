@@ -1,3 +1,4 @@
+/*
 // npm packeges
 const mongoose = require("mongoose");
 
@@ -16,4 +17,5 @@ const blogSchema = mongoose.Schema({
     default: Date.now,
   },
 });
-module.exports = mongoose.model("article", blogSchema);
+module.exports = mongoose.model("article", blogSchema); 
+*/
