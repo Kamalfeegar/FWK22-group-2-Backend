@@ -1,9 +1,9 @@
 const articles = [
-  { title: "Title1", description: "description" },
-  { title: "Title2", description: "description2" },
+  { id: 1, title: "Title1", description: "description" },
+  { id: 2, title: "Title2", description: "description2" },
 ];
 
-
+//__________________________________________
 
 const getAllArticles = async (req, res) => {
   try {
@@ -15,6 +15,9 @@ const getAllArticles = async (req, res) => {
     console.log({ message: error });
   }
 };
+
+//_______________________________________
+
 const postArticle = async (req, res) => {
     try {
       const newItem = {
@@ -31,9 +34,21 @@ const postArticle = async (req, res) => {
   } 
 };
 
+//______________________________________
+
 const getArticle = async (req, res) => {
   try {
-    res.json(await articles.find());
+        //gpt example (does not work)
+    //using title as id
+/*     const articleId = req.params.title;
+    const article = articles.find(item => item.title === articleId);
+
+    if (!article) {
+      return res.status(404).json({ message: 'Article not found' });
+    }
+    else
+    res.status(200).json({ data: article });
+ */
   } catch (error) {
     console.log({ message: error });
   } 
@@ -41,7 +56,21 @@ const getArticle = async (req, res) => {
 
 const deleteArticle = async (req, res) => {
    try {
-    res.json(await articles.deleteOne({ _id: req.params.itemId })); 
+    //gpt example (does not work)
+/*     const idToDelete = parseInt(req.params.id);
+  
+    // Find the index of the article with the specified ID in the array
+    const indexToDelete = articles.findIndex(article => article.id === idToDelete);
+  
+  
+    if (indexToDelete === -1) {
+      return res.status(404).json({ message: 'Article not found' });
+    }
+  
+    // Remove the article from the array
+    articles.splice(indexToDelete, 1);
+  
+    res.status(204).end(); */
   } catch (error) {
     console.log({ message: error });
   } 
