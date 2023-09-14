@@ -8,7 +8,7 @@
     "test:watch": "jest --coverage --watchAll=true --passWithNoTests --group=-component --group=-integration",
     "test:component": "jest --group=component",
     "test:integration": "jest --group=integration",
-    "start": "node service.js"
+    "start": "nodemon service.js"
   },
   "repository": {
     "type": "git",
