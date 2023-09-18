@@ -30,6 +30,7 @@ const postArticle = async (req, res) => {
     const newItem = {
       title: req.body.title,
       description: req.body.description,
+      id: generateUniqueID(),
     };
 
     articles.push(newItem);
