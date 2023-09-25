@@ -3,10 +3,6 @@
 ## Setup and Startupp
 
 #### Startup
-.env file content 
-* PORT
-* DB_URL
-
 ```
 npm i
 npm start 
@@ -14,7 +10,7 @@ npm start
 
 #### Setup for request
 ```
-http://localhost:${port}/
+backend.up.railway.app/endpoint
 ```
 | Req   | endpoint  |
 |-------|-----------|
