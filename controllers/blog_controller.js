@@ -63,21 +63,15 @@ const getArticle = async (req, res) => {
 
 const deleteArticle = async (req, res) => {
   try {
-    //gpt example (does not work)
-    /*     const idToDelete = parseInt(req.params.id);
-  
-    // Find the index of the article with the specified ID in the array
-    const indexToDelete = articles.findIndex(article => article.id === idToDelete);
-  
-  
-    if (indexToDelete === -1) {
-      return res.status(404).json({ message: 'Article not found' });
-    }
-  
-    // Remove the article from the array
-    articles.splice(indexToDelete, 1);
-  
-    res.status(204).end(); */
+    const articleId = req.params.id;
+
+    const articleIndex = articles.findIndex((article) => article.id == articleId)
+    articles.splice(articleIndex, 1);
+
+    res.status(200).json({
+      status: "success",
+    })
+
   } catch (error) {
     console.log({ message: error });
   }
