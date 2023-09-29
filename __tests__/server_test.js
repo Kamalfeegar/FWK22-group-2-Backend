@@ -20,12 +20,3 @@ describe('Data has title and description', () => {
     });
   });
 });
-
-
-//Test env dependenses
-describe('Data has title and description', () => {
-  const PORT = process.env.PORT
-  it('Title, Description ', () => {
-    expect(PORT).not.toBeUndefined();
-  });
-});
