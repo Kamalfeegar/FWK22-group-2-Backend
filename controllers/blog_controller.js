@@ -5,9 +5,11 @@ function generateUniqueID() {
   return uniqueID;
 }
 
+const createdDate = Date.now();
+
 const articles = [
-  { id: generateUniqueID(), title: "Title1", description: "description" },
-  { id: generateUniqueID(), title: "Title2", description: "description2" },
+  { date: (new Date (createdDate)), id: generateUniqueID(), title: "Title1", description: "description" },
+  { date: (new Date (createdDate)), id: generateUniqueID(), title: "Title2", description: "description2" },
 ];
 
 //__________________________________________
@@ -31,6 +33,7 @@ const postArticle = async (req, res) => {
       title: req.body.title,
       description: req.body.description,
       id: generateUniqueID(),
+      date: (new Date (createdDate)),
     };
 
     articles.push(newItem);
