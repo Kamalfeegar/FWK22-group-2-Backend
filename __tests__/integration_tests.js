@@ -44,3 +44,22 @@ describe('DeleteReqTest' ,() =>{
     expect(response.body).toEqual({ status: 'success' });
   });
 });
+
+// PATCH request test
+
+describe('updateBlogPost', () => {
+  it('Should create a new blog post and return status 201', async () => {
+    
+    const updateBlogPostTest = {
+      title: 'Updated Title',
+      description: 'Updated Description',
+    };
+
+    const response = await request(app)
+    .patch("/blogpost")
+    .send(updateBlogPostTest);
+
+    expect(response.status).toBe(200);
+
+  });
+});
