@@ -32,7 +32,7 @@ describe('getAllArticles', () => {
 
 
 
-
+//Post request test
 
 describe('createBlogPost', () => {
   it('Should create a new blog post and return status 201', async () => {
