@@ -1,7 +1,6 @@
 /**
 @group unit
 **/
-
 require('dotenv').config();
 const request = require('supertest');
 const { app } = require('../server');
@@ -21,6 +20,8 @@ describe('Data has title and description', () => {
     articles.articles.forEach(article => {
       expect(article).toHaveProperty('title');
       expect(article).toHaveProperty('description');
+      expect(article).toHaveProperty('date');
+      expect(article).toHaveProperty('id');
     });
   });
 });
