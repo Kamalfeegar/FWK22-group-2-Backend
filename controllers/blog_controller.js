@@ -50,11 +50,16 @@ const getArticle = async (req, res) => {
   try {
     const articleId = req.params.id;
 
-    const articleIndex = articles.findIndex((article) => article.id == articleId)
-    res.status(200).json({ data: article });
+    const articleIndex = articles.find((article) => article.id == articleId);
 
+    if (articleIndex) {
+      res.status(200).json({ data: articleIndex });
+    } else {
+      res.status(404).json({ message: "Not found" });
+    }
   } catch (error) {
     console.log({ message: error });
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
