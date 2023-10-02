@@ -47,7 +47,7 @@ describe('DeleteReqTest' ,() =>{
 
 // PATCH request test
 
-describe('updateBlogPost', () => {
+describe('updateBlogPostTest', () => {
   it('Should create a new blog post and return status 201', async () => {
     
     const updateBlogPostTest = {
