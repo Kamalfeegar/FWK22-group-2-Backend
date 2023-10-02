@@ -48,17 +48,11 @@ const postArticle = async (req, res) => {
 
 const getArticle = async (req, res) => {
   try {
-    //gpt example (does not work)
-    //using title as id
-    /*     const articleId = req.params.title;
-    const article = articles.find(item => item.title === articleId);
+    const articleId = req.params.id;
 
-    if (!article) {
-      return res.status(404).json({ message: 'Article not found' });
-    }
-    else
+    const articleIndex = articles.findIndex((article) => article.id == articleId)
     res.status(200).json({ data: article });
- */
+
   } catch (error) {
     console.log({ message: error });
   }
