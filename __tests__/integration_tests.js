@@ -21,3 +21,32 @@ describe('getReqTest', () => {
       expect(response.body).toHaveProperty('data');
   });
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+describe('createBlogPost', () => {
+  it('Should create a new blog post and return status 201', async () => {
+    
+    const blogPostTest = {
+      title: "Testing blog post title",
+      description: "Testing blog post description"
+    };
+
+    const response = await request(app)
+    .post("/blogpost")
+    .send(blogPostTest);
+
+    expect(response.status).toBe(201)
+
+  });
+});
