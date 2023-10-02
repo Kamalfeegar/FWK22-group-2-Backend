@@ -8,7 +8,7 @@ function generateUniqueID() {
 const createdDate = Date.now();
 
 const articles = [
-  { date: (new Date (createdDate)), id: generateUniqueID(), title: "Title1", description: "description" },
+  { date: (new Date (createdDate)), id: 1, title: "TestProfile", description: "description" },
   { date: (new Date (createdDate)), id: generateUniqueID(), title: "Title2", description: "description2" },
 ];
 
