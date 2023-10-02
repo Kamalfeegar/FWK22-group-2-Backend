@@ -10,11 +10,17 @@ jobs:
     build_and_deploy:
         runs-on: ubuntu-latest
 
-        
-
         steps: 
-            - name: Load .env Variable
-              run: echo  ${{ env.RAILWAY_TOKEN }}
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Use Node 18
+              uses: actions/setup-node@v1
+              with:
+                node-version: 18.x
+      
+            - name: Install Railway
+              run: npm i -g @railway/cli
 
             - uses: devtomio/action-railway@v1.1.4
               with:
