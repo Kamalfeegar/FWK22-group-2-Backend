@@ -14,10 +14,10 @@ describe('Test jest', () => {
 
 //Get req test
 
-describe('getAllArticles', () => {
+describe('getReqTest', () => {
   it('should return status: 200', async () => {
     const response = await request(app).get('/blogpost');
-    expect(response.status).toBe(200);
-    expect(response.body).toHaveProperty('data');
+      expect(response.status).toBe(200);
+      expect(response.body).toHaveProperty('data');
   });
 })
