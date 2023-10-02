@@ -1,3 +1,7 @@
+/**
+@group integration
+**/
+
 // Test if Jest is working
 describe('Test jest', () => {
     it('1 = 1', () => {
