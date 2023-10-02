@@ -22,16 +22,6 @@ describe('getAllArticles', () => {
   });
 })
 
-
-
-
-
-
-
-
-
-
-
 //Post request test
 
 describe('createBlogPost', () => {
