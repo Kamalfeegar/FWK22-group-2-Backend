@@ -47,16 +47,18 @@ describe('DeleteReqTest' ,() =>{
 
 // PATCH request test
 
-describe('updateBlogPostTest', () => {
-  it('Should create a new blog post and return status 201', async () => {
+describe('updateBlogPost', () => {
+  it('Should create a new blog post and return status 200', async () => {
     
     const updateBlogPostTest = {
       title: 'Updated Title',
       description: 'Updated Description',
     };
 
+    const postId = uuidv4();
+
     const response = await request(app)
-    .patch("/blogpost")
+    .patch(`/blogpost${postId}`)
     .send(updateBlogPostTest);
 
     expect(response.status).toBe(200);
