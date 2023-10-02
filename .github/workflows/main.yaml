@@ -1,16 +1,24 @@
 
-name: Hello world
+name: Deployment
 
 on:
-    workflow_dispatch:
+    push:
+        branches:
+        - main
 
 jobs:
-    print-hello-world:
+    build_and_deploy:
         runs-on: ubuntu-latest
 
+        
+
         steps: 
-            - name: Say hello
-              run: echo "Hello World"
+            - name: Load .env Variable
+              run: echo  ${{ env.RAILWAY_TOKEN }}
 
+            - uses: devtomio/action-railway@v1.1.4
+              with:
+                railway_token: ${{ env.RAILWAY_TOKEN }}
 
+            
 
