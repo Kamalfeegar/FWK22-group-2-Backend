@@ -2,14 +2,25 @@
 @group unit
 **/
 
-//test with jest for domain/blog.js
+require('dotenv').config();
+const request = require('supertest');
+const { app } = require('../server');
+const articles = require( '../controllers/blog_controller')
 
-const blogHandler = require("../domain/blog.js")
 
-describe("Given blogHandler", () => {
-	describe("When using", () => {
-        test("Should have expected", () => {
-            expect().toBe();
-        });
+// Test if Jest is working
+describe('Test jest', () => {
+    it('1 = 1', () => {
+      expect(1).toBe(1);
     });
+});
+
+// Test if the dummy data has all neded Propertys
+describe('Data has title and description', () => {
+  it('Title, Description ', () => {
+    articles.articles.forEach(article => {
+      expect(article).toHaveProperty('title');
+      expect(article).toHaveProperty('description');
+    });
+  });
 });
