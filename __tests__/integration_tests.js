@@ -4,14 +4,6 @@
 const request = require('supertest');
 const app = require('../server');
 
-// Test if Jest is working
-describe('Test jest', () => {
-    it('1 = 1', () => {
-      expect(1).toBe(1);
-    });
-});
-
-
 //Get req test
 
 describe('getAllArticles', () => {
