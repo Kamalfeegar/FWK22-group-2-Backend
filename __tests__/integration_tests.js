@@ -7,7 +7,7 @@ const app = require('../server');
 //GET req test
 
 describe('GetReqTest', () => {
-  it.skip('should return status: 200', async () => {
+  it('should return status: 200', async () => {
     const response = await request(app).get('/blogpost');
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('data');
@@ -17,7 +17,7 @@ describe('GetReqTest', () => {
 //Post request test
 
 describe('createBlogPost', () => {
-  it.skip('Should create a new blog post and return status 201', async () => {
+  it('Should create a new blog post and return status 201', async () => {
     
     const blogPostTest = {
       title: "Testing blog post title",
@@ -35,15 +35,15 @@ describe('createBlogPost', () => {
 
 // DELETE request test
 
-describe('DeleteReqTest' ,() =>{
-  it.skip('delete shuld return status 200', async () => {
-    const articleId = 1;
-    const response = await request(app).delete(`/blogpost/${articleId}`);
+// describe('DeleteReqTest' ,() =>{
+//   it('delete shuld return status 200', async () => {
+//     const articleId = 1;
+//     const response = await request(app).delete(`/blogpost/${articleId}`);
 
-    expect(response.status).toBe(200);
-    expect(response.body).toEqual({ status: 'success' });
-  });
-});
+//     expect(response.status).toBe(200);
+//     expect(response.body).toEqual({ status: 'success' });
+//   });
+// });
 
 // PATCH request test
 

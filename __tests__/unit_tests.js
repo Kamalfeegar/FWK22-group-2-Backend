@@ -4,7 +4,8 @@
 require('dotenv').config();
 const request = require('supertest');
 const { app } = require('../server');
-const articles = require( '../controllers/blog_controller')
+const data = require( '../data.json')
+const controllers = require("../controllers/blog_controller");
 
 
 // Test if Jest is working
@@ -15,9 +16,9 @@ describe('Test jest', () => {
 });
 
 // Test if the dummy data has all neded Propertys
-describe('Data has title and description', () => {
-  it.skip('Title, Description ', () => {
-    articles.articles.forEach(article => {
+describe('That data has properties', () => {
+  it('Title, Description, Date and ID ', () => {
+    data.forEach(article => {
       expect(article).toHaveProperty('title');
       expect(article).toHaveProperty('description');
       expect(article).toHaveProperty('date');
@@ -25,3 +26,27 @@ describe('Data has title and description', () => {
     });
   });
 });
+
+describe('Following data properties are not empty:', () => {
+  it('Title, Description, Date and ID ', () => {
+    data.forEach(article => {
+      expect(article.title).not.toBe('');
+      expect(article.description).not.toBe('');
+      expect(article.date).not.toBe('');
+      expect(article.id).not.toBe('');
+    });
+  });
+});
+
+
+/* 
+
+describe('drinkAll', () => {
+  test('drinks something lemon-flavoured', () => {
+    const drink = jest.fn();
+    drinkAll(drink, 'lemon');
+    expect(drink).toHaveBeenCalled();
+  });
+
+
+  */

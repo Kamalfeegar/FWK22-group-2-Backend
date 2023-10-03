@@ -14,7 +14,7 @@
   {
     "date": "2023-10-02T09:35:35.686Z",
     "title": "title to patch",
-    "description": "Updated Description",
+    "description": "Udated Description",
     "id": "f2d937c8-9f48-4683-b319-1c10fcd6e598"
   },
   {
@@ -28,5 +28,17 @@
     "description": "Updated Description 2",
     "id": "13af18ce-5b0a-4f3e-b755-3a8b89458d16",
     "date": "2023-10-03T17:54:57.459Z"
+  },
+  {
+    "title": "Testing blog post title",
+    "description": "Testing blog post description",
+    "id": "e6122bf8-8c6f-4427-80ab-ebafba547366",
+    "date": "2023-10-03T19:29:55.775Z"
+  },
+  {
+    "title": "Testing blog post title",
+    "description": "Testing blog post description",
+    "id": "e01fcf21-a343-45e3-8b9f-b969d789f2fe",
+    "date": "2023-10-03T19:32:24.980Z"
   }
 ]
