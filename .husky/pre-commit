@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm test # Lägg till en pre-commit hook
+npm run test:unit # Lägg till en pre-commit hook

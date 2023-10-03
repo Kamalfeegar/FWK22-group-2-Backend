@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest  --group=-component --group=-integration",
     "test:watch": "jest --coverage --watchAll=true --passWithNoTests --group=-component --group=-integration",
+    "test:unit": "jest --group=unit",
     "test:component": "jest --group=component",
     "test:integration": "jest --group=integration",
     "start": "nodemon service.js",
