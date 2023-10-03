@@ -1,4 +1,5 @@
 const { v4: uuidv4 } = require("uuid");
+const fs = require("fs").promises
 
 function generateUniqueID() {
   let uniqueID = uuidv4();
@@ -7,28 +8,33 @@ function generateUniqueID() {
 
 const createdDate = Date.now();
 
-const articles = [
-  { date: (new Date (createdDate)), id: 1, title: "TestProfile", description: "description" },
-  { date: (new Date (createdDate)), id: generateUniqueID(), title: "Title2", description: "description2" },
-];
+// const articles = [
+//   { date: (new Date (createdDate)), id: 1, title: "TestProfile", description: "description" },
+//   { date: (new Date (createdDate)), id: generateUniqueID(), title: "Title2", description: "description2" },
+// ];
 
 //__________________________________________
 
 const getAllArticles = async (req, res) => {
   try {
-    /* res.json(await article.find()); */
-    res.status(200).json({
-      data: articles,
-    });
+    const data = await fs.readFile("data.json");
+    const jsonData = JSON.parse(data);
+    res.status(200).json({data: jsonData})
   } catch (error) {
-    console.log({ message: error });
+    res.status(500).json({message: "Internal server error"});
   }
-};
+}
 
 //_______________________________________
 
 const postArticle = async (req, res) => {
   try {
+
+    const {title, description} = req.body
+
+    const data = await fs.readFile("data.json");
+    const articles = JSON.parse(data);
+
     const newItem = {
       title: req.body.title,
       description: req.body.description,
@@ -37,6 +43,8 @@ const postArticle = async (req, res) => {
     };
 
     articles.push(newItem);
+
+    fs.writeFile("data.json", JSON.stringify(articles, null, 2));
 
     res.status(201).json(newItem); // Respond with the newly created item
   } catch (error) {
@@ -50,51 +58,54 @@ const getArticle = async (req, res) => {
   try {
     const articleId = req.params.id;
 
-    const article = articles.find((article) => article.id === articleId);
+    const data = await fs.readFile("data.json");
+    const jsonData = JSON.parse(data);
+    const findArticle = jsonData.find((article) => article.id === articleId)
 
-    if (article) {
-      res.status(200).json({ data: article });
-    } else {
-      res.status(404).json({ message: "Article not found" });
-    }
+    res.status(200).json({data: findArticle})
   } catch (error) {
-    console.log({ message: error });
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({message: "Internal server error"});
   }
-};
+}
 
 const deleteArticle = async (req, res) => {
   try {
-    const articleId = req.params.id;
+    const articleIdToDelete = req.params.id;
 
-    const articleIndex = articles.findIndex((article) => article.id == articleId)
-    articles.splice(articleIndex, 1);
+    const data = await fs.readFile("data.json");
+    const jsonData = JSON.parse(data);
+    const findArticle = jsonData.findIndex((dataArticle) => dataArticle.id === articleIdToDelete)
+    const deleteArticle = jsonData.splice(findArticle, 1)
+    fs.writeFile("data.json", JSON.stringify(jsonData, null, 2))
 
-    res.status(200).json({
-      status: "success",
-    })
-
+    res.status(200).json({data: deleteArticle})
   } catch (error) {
-    console.log({ message: error });
+    res.status(500).json({message: "Internal server error"});
   }
-};
+}
 
-const uppdateArticle = async (req, res) => {
+const updateArticle = async (req, res) => {
   try {
-    const updatedArticle = await articles.updateOne(
-      { _id: req.params.itemId },
-      { $set: { title: req.body.title, description: req.body.description } }
-    );
-    res.json(updatedArticle);
+    
+    const articleToUpdate = req.params.id;
+    const articleBodyToUpdate = req.body;
+
+    const data = await fs.readFile("data.json")
+    const jsonData = JSON.parse(data);
+    const findArticle = jsonData.findIndex((article) => article.id === articleToUpdate);
+    jsonData[findArticle] = {...jsonData[findArticle], ...articleBodyToUpdate}
+    fs.writeFile("data.json", JSON.stringify(jsonData, null, 2))
+
+    res.status(200).json({data: jsonData[findArticle]})
   } catch (error) {
-    console.log({ message: error });
+    res.status(500).json({message: "Internal server error"});
   }
-};
+}
+
 module.exports = {
   getAllArticles,
   postArticle,
   getArticle,
   deleteArticle,
-  uppdateArticle,
-  articles,
+  updateArticle,
 };

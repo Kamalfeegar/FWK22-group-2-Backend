@@ -7,9 +7,9 @@ const router = express.Router();
 // Routers pointing to endpoint
 router.get("/", controllers.getAllArticles);
 router.post("/", controllers.postArticle);
-router.get("/:itemId", controllers.getArticle);
-router.delete("/:itemId", controllers.deleteArticle);
-router.patch("/:itemId", controllers.uppdateArticle);
+router.get("/:id", controllers.getArticle);
+router.delete("/:id", controllers.deleteArticle);
+router.patch("/:id", controllers.updateArticle);
 
 // export
 module.exports = router;
