@@ -13,7 +13,7 @@ const createdDate = Date.now();
 //   { date: (new Date (createdDate)), id: generateUniqueID(), title: "Title2", description: "description2" },
 // ];
 
-//__________________________________________
+// GET article request
 
 const getAllArticles = async (req, res) => {
   try {
@@ -25,7 +25,7 @@ const getAllArticles = async (req, res) => {
   }
 }
 
-//_______________________________________
+// POST article request
 
 const postArticle = async (req, res) => {
   try {
@@ -52,7 +52,7 @@ const postArticle = async (req, res) => {
   }
 };
 
-//______________________________________
+// GET:id article request
 
 const getArticle = async (req, res) => {
   try {
@@ -67,6 +67,8 @@ const getArticle = async (req, res) => {
     res.status(500).json({message: "Internal server error"});
   }
 }
+
+// DELETE article request
 
 const deleteArticle = async (req, res) => {
   try {
@@ -83,7 +85,7 @@ const deleteArticle = async (req, res) => {
     res.status(500).json({message: "Internal server error"});
   }
 }
-
+ // PATCH article request
 const updateArticle = async (req, res) => {
   try {
     
