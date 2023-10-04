@@ -17,3 +17,6 @@ backend.up.railway.app/endpoint
 | Get   | /blogpost |
 | Post  | /blogpost |
 | Delete| /blogpost:id|
+
+
+CI/CD DEMO 
