@@ -19,4 +19,3 @@ backend.up.railway.app/endpoint
 | Delete| /blogpost:id|
 
 
-CI/CD DEMO 
